@@ -8,35 +8,43 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Warm, empathetic color palette */
+    --background: 0 0% 98%;
+    --foreground: 220 9% 25%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 9% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 9% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Warm yellow primary for trust and hope */
+    --primary: 42 87% 55%;
+    --primary-foreground: 220 9% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft secondary tones */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 220 9% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 20% 95%;
+    --muted-foreground: 220 9% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 42 87% 95%;
+    --accent-foreground: 220 9% 25%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 20% 90%;
+    --input: 210 20% 95%;
+    --ring: 42 87% 55%;
 
-    --radius: 0.5rem;
+    /* Gentle radius for warm feeling */
+    --radius: 0.75rem;
+
+    /* Custom gradient overlays */
+    --hero-overlay: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+    --card-backdrop: rgba(255,255,255,0.85);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +64,36 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 9% 15%;
+    --foreground: 210 20% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 9% 18%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 9% 18%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 42 87% 60%;
+    --primary-foreground: 220 9% 15%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 9% 22%;
+    --secondary-foreground: 210 20% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 9% 22%;
+    --muted-foreground: 210 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 220 9% 22%;
+    --accent-foreground: 210 20% 95%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 220 9% 25%;
+    --input: 220 9% 25%;
+    --ring: 42 87% 60%;
+
+    --hero-overlay: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4));
+    --card-backdrop: rgba(34, 37, 41, 0.9);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +111,40 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Custom animations for slideshow and transitions */
+  .slideshow-fade {
+    animation: fadeInOut 15s infinite;
+  }
+
+  .slideshow-fade:nth-child(2) {
+    animation-delay: 5s;
+  }
+
+  .slideshow-fade:nth-child(3) {
+    animation-delay: 10s;
+  }
+
+  @keyframes fadeInOut {
+    0%, 33.33%, 100% { opacity: 0; }
+    16.66%, 83.33% { opacity: 1; }
+  }
+
+  /* Text rotation animation */
+  .text-rotate {
+    animation: textRotate 12s infinite;
+  }
+
+  @keyframes textRotate {
+    0%, 25% { opacity: 1; transform: translateY(0); }
+    33.33%, 66.66% { opacity: 0; transform: translateY(-20px); }
+    75%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
